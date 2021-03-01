@@ -155,6 +155,10 @@ async def send_menu(user_id, keyword_day):
     
     """
     menu = DB.get_menu(keyword=keyword_day)
+    if not menu:
+        await bot.send_message(user_id, 'Извините, меню на этот день отсутствует')
+        return
+    
     dishes = DB.get_dish(menu_id=menu['id'])
     
     await bot.send_message(user_id, '📅 Меню на '+str(menu['date'])+':')
