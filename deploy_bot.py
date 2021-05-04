@@ -72,8 +72,8 @@ with psycopg2.connect(
     
     with conn.cursor(cursor_factory=DictCursor) as cur:
                         
-        # cur.execute(SQL(TABLE_users))
+        cur.execute(SQL(TABLE_users))
         cur.execute(SQL(TABLE_menu))
         cur.execute(SQL(TABLE_dish))
         cur.execute(SQL(TABLE_feedback))
-        # cur.execute(SQL(TABLE_answer_loyalty))
+        cur.execute(SQL(TABLE_answer_loyalty))
