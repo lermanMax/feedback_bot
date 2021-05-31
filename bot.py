@@ -79,8 +79,26 @@ def check_low_answers(user_id):
     return False
 
 
+# @dp.message_handler(commands=['start'])
+# async def send_phone(message: types.Message):
+#     logging.info('start command from: %r', message.from_user.id) 
+    
+#     DB.add_user(message.from_user.id, 
+#                 message.from_user.first_name, 
+#                 message.from_user.last_name, 
+#                 message.from_user.username, 
+#                 message.from_user.language_code)
+
+#     keyboard = types.ReplyKeyboardMarkup(one_time_keyboard=True, 
+#                                          resize_keyboard=True)
+#     keyboard.add(types.KeyboardButton('Отправить телефон 📞', 
+#                                       request_contact=True))
+#     text = get_text_from('./text_of_questions/authorization.txt')
+#     await message.answer(text, reply_markup = keyboard)
+    
+
 @dp.message_handler(commands=['start'])
-async def send_phone(message: types.Message):
+async def start_command(message: types.Message):
     logging.info('start command from: %r', message.from_user.id) 
     
     DB.add_user(message.from_user.id, 
@@ -89,11 +107,8 @@ async def send_phone(message: types.Message):
                 message.from_user.username, 
                 message.from_user.language_code)
 
-    keyboard = types.ReplyKeyboardMarkup(one_time_keyboard=True, 
-                                         resize_keyboard=True)
-    keyboard.add(types.KeyboardButton('Отправить телефон 📞', 
-                                      request_contact=True))
-    text = get_text_from('./text_of_questions/authorization.txt')
+    text = get_text_from('./text_of_questions/first_instruction.txt')
+    keyboard = get_basemenu_keyboard()
     await message.answer(text, reply_markup = keyboard)
 
 
