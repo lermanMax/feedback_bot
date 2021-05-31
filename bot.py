@@ -236,13 +236,16 @@ async def callback_like(query: types.CallbackQuery,
 async def admin_options(message: types.Message):
     logging.info('admin command from: %r', message.from_user.id) 
     
-    if message.from_user.id in admin_id:
-        question_name, text, answers = get_next_question('admin_options')
-        keyboard = make_keyboard(question_name, answers)
-    else: 
-        text = 'У вас нет доступа'
-        keyboard = None
+    # if message.from_user.id in admin_id:
+    #     question_name, text, answers = get_next_question('admin_options')
+    #     keyboard = make_keyboard(question_name, answers)
+    # else: 
+    #     text = 'У вас нет доступа'
+    #     keyboard = None
         
+    question_name, text, answers = get_next_question('admin_options')
+    keyboard = make_keyboard(question_name, answers)
+    
     await message.answer(text, reply_markup = keyboard)
 
 
