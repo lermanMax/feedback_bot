@@ -39,7 +39,8 @@ keywords_day =  ['Меню позавчера',
                  'Меню вчера', 
                  'Меню сегодня']
 loyaltyMark_word = 'Оценить работу компании' 
-basemenu_list = keywords_day + [loyaltyMark_word,]
+adminMark_word = '/admin'
+basemenu_list = keywords_day + [loyaltyMark_word, adminMark_word]
 
 who_should_send_menu = {}
 
